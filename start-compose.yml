@@ -1,0 +1,9 @@
+- hosts: ansible
+  tasks:
+    - command: docker-compose up -d
+      args:
+        chdir: "{{ docker_compose.path }}"
+      register: output
+
+    - debug:
+        var: output
