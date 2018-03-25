@@ -1,7 +1,10 @@
 - hosts: container
   tasks:
-    - ping:
+    - setup:
       register: output
 
     - debug:
         var: output
+
+    - debug:
+        var: hostvars[ansible_fqdn]

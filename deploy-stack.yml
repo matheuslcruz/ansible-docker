@@ -1,6 +1,6 @@
 - hosts: ansible
   tasks:
-    - command: docker-compose up -d
+    - command: "docker stack deploy --compose-file docker-compose.yml {{ docker_compose.stack }}"
       args:
         chdir: "{{ docker_compose.path }}"
       register: output

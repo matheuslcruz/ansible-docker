@@ -1,6 +1,6 @@
 - hosts: ansible
   tasks:
-    - command: docker-compose stop
+    - command: docker stack rm {{ docker_compose.stack }}
       args:
         chdir: "{{ docker_compose.path }}"
       register: output

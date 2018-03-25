@@ -1,0 +1,14 @@
+- hosts: ansible
+  tasks:
+    - debug: "var=hostvars[ansible_lo.ipv4.address].groups.container"
+      register: output
+
+    - debug:
+        var: output
+
+    - command: "docker rm {{ item }} --force"
+      with_items: "{{ hostvars[ansible_lo.ipv4.address].groups.container }}"
+      register: output
+
+    - debug:
+        var: output
