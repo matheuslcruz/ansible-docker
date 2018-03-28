@@ -1,9 +1,0 @@
-- hosts: ansible
-  tasks:
-    - command: "docker rm {{ item }} --force"
-      with_items: "{{ hostvars[ansible_lo.ipv4.address].groups.container }}"
-      ignore_errors: yes
-      register: output
-
-    - debug:
-        var: output

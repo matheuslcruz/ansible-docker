@@ -1,11 +1,2 @@
-[test]
-127.0.0.1 ansible_connection=local
-
-[container]
-test_container
-
-[container:vars]
-ansible_connection=docker
-
 [ansible]
 127.0.0.1 ansible_connection=local

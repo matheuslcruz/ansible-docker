@@ -21,27 +21,15 @@ DEPLOY STACK
 --
 
     ansible-playbook -i hosts.ini deploy-stack.yml
-    docker ps -qa
-
-Put all containers created by the stack into host groups in the inventory hosts.ini:
-
-    [container]
-    a812d33517ed
-    f1b4dc489e59
 
 TEST CONTAINERS
 --
 
-    ansible-playbook -i hosts.ini setup-container.yml
+Download [docker.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/docker.py) to use dynamic inventory.
+
+    ansible-playbook -i docker.py ping-container.yml
 
 UNDEPLOY STACK
 --
 
     ansible-playbook -i hosts.ini undeploy-stack.yml
-
-REMOVE CONTAINERS
---
-
-See: https://github.com/moby/moby/issues/32620
-
-    ansible-playbook -i hosts.ini remove-containers.yml

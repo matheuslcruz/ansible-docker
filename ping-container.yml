@@ -1,0 +1,4 @@
+- hosts: running
+  connection: docker
+  tasks:
+    - ping:
